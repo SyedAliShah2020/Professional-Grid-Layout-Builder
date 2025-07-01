@@ -1,0 +1,185 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  width: 100%;
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+  .tool-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .tool-description h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-description-text {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    max-width: 90%;
+  }
+
+  .use-cases {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .use-cases h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .use-cases ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .use-cases li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .use-cases li i {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-right: 10px;
+  }
+
+  #grid {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+
+  .grid-cell {
+    min-height: 50px;
+  }
+
+  .btn-generate,
+  .btn-clear {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .testimonial-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+  }
+
+  .social-links a i {
+    font-size: 1.5rem;
+  }
+
+  footer h3 {
+    font-size: 1.5rem;
+  }
+
+  footer p {
+    font-size: 1rem;
+  }
+
+  footer .social-links a {
+    font-size: 1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .tool-description h2 {
+    font-size: 1.8rem;
+  }
+
+  .tool-description-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .use-cases h3 {
+    font-size: 1.2rem;
+  }
+
+  .use-cases li {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  #grid {
+    width: 100%;
+    max-width: 90%;
+    padding: 5px;
+  }
+
+  .grid-cell {
+    height: 50px;
+    width: 100%;
+    min-width: 50px;
+  }
+
+  .btn-generate,
+  .btn-clear {
+    max-width: 100%;
+  }
+
+  .testimonial-card {
+    padding: 1.2rem;
+  }
+
+  .testimonial-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-card p {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card .title {
+    font-size: 0.9rem;
+  }
+}

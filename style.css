@@ -1,0 +1,545 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  background: var(--bg-primary); /* Background color based on theme */
+  color: var(--text-primary); /* Text color based on theme */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Define Light Theme */
+:root {
+  --bg-primary: linear-gradient(135deg, #54f54e 0%, #dff136 100%);
+  --bg-secondary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #34495e;
+  --button-bg: #28a745;
+  --button-hover: #218838;
+  --input-bg: #ffffff;
+  --input-border: #3498db;
+  --input-focus: #2ecc71;
+  --feature-card-bg: #f0f0f0;
+  --accent-primary: #3498db;
+  --grid-bg: #fff;
+  --cell-border: #ccc;
+  --block-bg: rgba(0, 123, 255, 0.3);
+  --block-border: #007bff;
+}
+
+/* Define Dark Theme */
+body.dark {
+  --bg-primary: linear-gradient(135deg, #316192 0%, #4ca1af 100%);
+  --bg-secondary: #34495e;
+  --text-primary: #ecf0f1;
+  --text-secondary: #bdc3c7;
+  --button-bg: #6c757d;
+  --button-hover: #5a6268;
+  --input-bg: #2c3e50;
+  --input-border: #2980b9;
+  --input-focus: #2ecc71;
+  --feature-card-bg: #465a6e;
+  --accent-primary: #3498db;
+  --grid-bg: #2c3e50;
+  --cell-border: #7f8c8d;
+  --block-bg: rgba(0, 123, 255, 0.5);
+  --block-border: #3498db;
+}
+
+/* Theme toggle button - fixed top right */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 9999;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover);
+}
+
+/* Header Section */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 3rem 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.developer {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Feature card */
+.header-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-card {
+  background-color: var(--feature-card-bg);
+  padding: 25px 20px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card i {
+  font-size: 3rem;
+  color: var(--accent-primary);
+  margin-bottom: 10px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Instructions */
+.instructions {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  color: var(--text-primary);
+  max-width: 800px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 180px;
+}
+
+.controls input {
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 150px;
+}
+
+.controls input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 10px var(--input-focus);
+}
+
+/* Buttons */
+button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-clear {
+  background-color: #dc3545;
+}
+
+.btn-clear:hover {
+  background-color: #c82333;
+}
+
+.btn-generate {
+  background-color: #28a745;
+}
+
+.btn-generate:hover {
+  background-color: #218838;
+}
+
+/* Grid Layout */
+#grid {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  margin: 2rem auto; /* centers horizontally */
+  background-color: var(--grid-bg);
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px dashed var(--cell-border);
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+/* Grid cells */
+.grid-cell {
+  background-color: #f9f9f9;
+  border: 1px solid var(--cell-border);
+  min-height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Blocks */
+.block {
+  background-color: var(--block-bg);
+  border: 2px solid var(--block-border);
+  color: var(--text-primary);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+  position: absolute;
+  transition: all 0.2s ease;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  user-select: none;
+  z-index: 1;
+}
+
+.block:hover {
+  background-color: rgba(0, 123, 255, 0.5);
+}
+
+/* Code container */
+.code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.code-box {
+  background: #ecf0f1;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.code-box label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+}
+
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+footer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+footer p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.social-links a:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+footer .copyright {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .controls label {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .btn-generate,
+  .btn-clear {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .code-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .social-links a {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .block {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}
+
+
+/* === Your Requested Styling for Professional Centered Text and Cards === */
+
+/* Container for the tool description */
+.tool-description {
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+}
+
+/* Heading style */
+.tool-description h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #2c3e50;
+}
+
+/* Italic paragraph below heading */
+.tool-description p {
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #555555;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Perfect For card container */
+.use-cases {
+  background: #f7f9fc;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+}
+
+/* Perfect For heading inside card */
+.use-cases h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+  letter-spacing: 1.2px;
+}
+
+/* List styling with spacing and icons */
+.use-cases ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.use-cases ul li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+/* Checkmark icon styling */
+.use-cases ul li i {
+  color: #3498db;
+  font-size: 1.4rem;
+}
+
+/* Professionals heading */
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  letter-spacing: 1.5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
